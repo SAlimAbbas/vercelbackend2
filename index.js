@@ -136,6 +136,12 @@ app.post("/allpatients/filter",async(req, res)=> {
     const {gender}=req.body;
     const temp=await Patient.find({gender});
     return res.send(JSON.stringify(temp));
+});
+
+app.post('/allpatients/searchby',async(req, res)=>{
+    const{name}=req.query.name;
+   const temp=await Patient.find({name});
+   return res.send(JSON.stringify(temp));
 })
 const PORT=8080;
 app.listen(PORT,()=>{
